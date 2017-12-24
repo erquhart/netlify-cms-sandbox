@@ -17,7 +17,7 @@
     "mz": "^2.6.0",
     "netlify-cms": "1.0.3",
     "react": "16.2.0",
-    "recursive-copy": "^2.0.6",
+    "recursive-copy": "^2.0.8",
     "reveal-md": "^0.3.0",
     "styled-components": "^1.4.6"
   },

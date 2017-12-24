@@ -36,17 +36,25 @@ const copyOptions = { overwrite: true };
 const copyStatic = () =>
   copy("./static", "./dist", copyOptions)
     // Notifications of copy progress
+    // .on(copy.events.CREATE_DIRECTORY_START, copyOperation =>
+    //   console.info(`Copying directory ${copyOperation.src} ...`)
+    // )
     .on(copy.events.COPY_FILE_START, copyOperation =>
       console.info(`Copying file ${copyOperation.src} ...`)
     )
     .on(copy.events.COPY_FILE_COMPLETE, copyOperation =>
       console.info(`Copied to ${copyOperation.dest}`)
     )
+    // .on(copy.events.CREATE_DIRECTORY_ERROR, (error, copyOperation) =>
+    // console.error(`Unable to copy to ${error}`)
+    // )
     .on(copy.events.ERROR, (error, copyOperation) =>
       console.error(`Unable to copy to ${copyOperation.dest}`)
     )
     // Notification of success or failure
-    .then(results => console.info(`${results.length} file(s) copied`))
+    .then(results => {
+      console.info(`${results.length} file(s) copied`)
+    })
     .catch(err => console.error(`Copy failed: ${err}`));
 
 const compileJS = () => runScript("compile-js");
