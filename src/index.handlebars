@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href="./assets/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <h1>{{config.title}}</h1>
@@ -14,5 +15,17 @@
         </li>
       {{/each}}
     </ul>
+     <script>
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on('init', user => {
+            if (!user) {
+              window.netlifyIdentity.on('login', () => {
+                document.location.href = '/admin/';
+              });
+            }
+          });
+        }
+        window.netlifyIdentity.init();
+    </script>
   </body>
 </html>
