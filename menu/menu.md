@@ -1,3 +1,6 @@
 ---
-title: Menu
+menuItems:
+  - menuItem: test 2
+  - menuItem: test
 ---
+
