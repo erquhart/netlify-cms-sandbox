@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: github
   repo: luczaki114/netlify-cms-sandbox
   branch: master
 
@@ -7,6 +7,19 @@ media_folder: "static/assets/uploads/"
 public_folder: "assets/uploads"
 
 collections:
+  - name: menu
+    label: Menu
+    files:
+      - file: "menu/menu.md"
+        label: "Menu"
+        name: "menu"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Path", name: "path", widget: "hidden", default: "/about"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+          - {label: MenuThing, name: menuThing, widget: menu}
+
   - name: presentations
     label: Presentation
     folder: presentations
