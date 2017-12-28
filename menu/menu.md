@@ -1,6 +1,6 @@
 ---
 menuItems: !!seq
-  - { isFolder: false, title: test 2, path: /test-2 }
-  - { isFolder: false, title: test, path: /test }
+  - { folderOrPath: folder, title: test 2, path: /test-2, folder: }
+  - { folderOrPath: path, title: test, path: /test, folder: }
 ---
 
