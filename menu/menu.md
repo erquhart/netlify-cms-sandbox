@@ -1,6 +1,8 @@
 ---
 menuItems: !!seq
-  - { folderOrPath: folder, title: test 2, path: /test-2, folder: }
-  - { folderOrPath: path, title: test, path: /test, folder: }
+  - menuItem:
+    - { folderOrPath: folder, title: test 2, path: /test-2, folder: }
+  - menuItem:
+    - { folderOrPath: path, title: test, path: /test, folder: }
 ---
 
