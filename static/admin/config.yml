@@ -14,12 +14,61 @@ collections:
         label: "Menu"
         name: "menu"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Path", name: "path", widget: "hidden", default: "/about"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-          - {label: MenuThing, name: menuThing, widget: menu}
+          - label: Menu Items
+            name: menuItems
+            widget: menuItems
+            field:
+              label: Menu Item
+              name: menuItem
+              widget: menuItem
+              fields:
+                - { label: Page or Folder, name: pageOrFolder, widget: select, options: ["folder", "path"], default: "path" }
+                - { label: Title, name: title, widget: string}
+                - { label: Path, name: path, widget: string }
+                - { label: Folder, name: folder, widget: relation, collection: pageFolder, searchFields: ["title"], valueField: folderPath}
+            
 
+  - label: Page Folder
+    name: pageFolder
+    folder: page-folders/
+    create: true
+    fields: 
+      - label: Page Folder
+        name: pageFolder
+        widget: list
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Folder Path, name: folderPath, widget: string}
+
+  - label: "Content Page"
+    name: "contentPage"
+    folder: "src/pages"
+    filter: { field: templateKey, value: "content-page" }
+    create: true
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "content-page"}
+      - {label: Folder Path, name: folderPath, widget: relation, collection: pageFolder, searchFields: ["folderPath"], valueField: folderPath}
+      - {label: "Path", name: "path", widget: "string", default: "/about"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Banner Image", name: "bannerImage", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - label: "Landing Page"
+    name: "landingPage"
+    folder: "src/pages"
+    filter: { field: templateKey, value: "landing-page" }
+    create: true
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "landing-page"}
+      - {label: Folder Path, name: folderPath, widget: relation, collection: pageFolder, searchFields: ["title"], valueField: folderPath}
+      - {label: "Path", name: "path", widget: "hidden", default: "/products"}
+      - {label: Title, name: title, widget: string}
+      - {label: Sub Title, name: subTitle, widget: string}
+      - {label: Banner Image, name: bannerImage, widget: image}
+      - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+      - {label: Spot Lights, name: spotlights, widget: list, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Path, name: path, widget: string}, {label: Image, name: image, widget: image}]}
+      - {label: Features, name: features, widget: list, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Path, name: path, widget: string}, {label: Icon, name: icon, widget: string}]}
+    
   - name: presentations
     label: Presentation
     folder: presentations

@@ -1,7 +1,9 @@
 import CMS from "netlify-cms";
 
 import { SlidesControl, SlidesPreview } from "./Slides";
-import { MenuControl, MenuPreview } from "./Menu";
+import { MenuItemsControl } from "./MenuItem";
+import { MenuItemControl } from "./MenuItem";
 
 CMS.registerWidget("slides", SlidesControl, SlidesPreview);
-CMS.registerWidget("menu", MenuControl, MenuPreview);
+CMS.registerWidget("menuItems", MenuItemsControl);
+CMS.registerWidget("menuItem", MenuItemControl);

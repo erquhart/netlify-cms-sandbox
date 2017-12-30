@@ -1,0 +1,23 @@
+.il-menuItemsControl .list-item > .nc-controlPane-control {
+    margin-top: -12px;
+}
+
+.il-menuItemsControl .list-item > .nc-controlPane-control > .nc-controlPane-label {
+    display: none;
+}
+
+.il-menuItemsControl .list-item > .nc-controlPane-control .nc-controlPane-control:first-child{
+    margin-top: -12px;
+}
+
+.il-menuItemsControl .nc-listControl-collapsed > .nc-controlPane-control {
+    display: none;
+}
+
+.il-menuItemsControl .list-item > .nc-controlPane-control > .nc-controlPane-widget {
+    border-top: none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+
